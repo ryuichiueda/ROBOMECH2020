@@ -5,7 +5,7 @@ robomech2020.pdf: robomech2020.dvi
 
 robomech2020.dvi: *.tex
 	platex robomech2020.tex
-	#bibtex robomech2020.aux
+	pbibtex robomech2020.aux
 	platex robomech2020.tex
 	platex robomech2020.tex
 
