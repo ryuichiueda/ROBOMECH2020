@@ -1,0 +1,17 @@
+*.dvi
+*.log
+*.ind
+*.aux
+*.toc
+*.syn
+*.idx
+*.out
+*.ilg
+*.pla
+*.bbl
+*.blg
+*.xbb
+*.swo
+*.swp
+*.pdf
+.DS_Store
