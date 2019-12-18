@@ -2,7 +2,15 @@
 \usepackage{robomech}
 \usepackage[dvipdfmx]{graphicx}
 
+\usepackage{amsmath} % assumes amsmath package installed
+\usepackage{amssymb}  % assumes amsmath package installed
+
+\newcommand{\argmin}{\mathop{\rm argmin}\limits}
+\newcommand{\argmax}{\mathop{\rm argmax}\limits}
+\newcommand{\V}[1]{\boldsymbol{#1}}
+
 \begin{document}
+
 \makeatletter
 
 \title{自己位置の不確かな移動ロボットの安全な隘路通過のための引き返し行動}
@@ -54,14 +62,21 @@ a risk is expected.
 数理モデルを提案する。
 
 
-
 \section{問題設定}
 
 図\ref{fig:environment}のようなシミュレーション環境を考える。
 シミュレーションの詳細は\cite{上田2019}に説明されている。
-ロボットは
+ロボットのタスクは、ある位置と向きから
+図中の水たまりを避けてゴールに向かうことである。
+水たまりに入った場合のペナルティーとして、
+時刻換算で一定のペナルティーが与えられる。
 
+ロボットの座標は$\V{x} = (x,y,\theta)$で表される。
 
+移動には雑音がある。
+
+センサ情報から自己位置推定する。
+推定結果は確率密度関数$b_t(\V{x})$で表される。
 
 
 \begin{figure}[tbh]
@@ -71,6 +86,14 @@ a risk is expected.
   \caption{Environment}
   \label{fig:environment}
 \end{figure}
+
+前提として、ロボットは
+任意の位置と向き（合わせて以後「姿勢」と呼ぶ）
+から、どれだけのペナルティーでゴールできるか、
+期待値を知っているとする。
+
+\section{後戻り行動}
+
 
 %\begin{table}[tb]
 % \caption{Type size and typefaces for papers}

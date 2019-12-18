@@ -1,5 +1,4 @@
 robomech2020.pdf: robomech2020.dvi
-	#dvipdfmx -p letter robomech2020.dvi
 	dvipdfmx -p a4 robomech2020.dvi
 	touch robomech2020.pdf
 
